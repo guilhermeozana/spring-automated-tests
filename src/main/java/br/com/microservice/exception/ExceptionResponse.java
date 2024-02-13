@@ -1,4 +1,4 @@
-package br.com.microservice.exceptions;
+package br.com.microservice.exception;
 
 import java.io.Serializable;
 import java.util.Date;

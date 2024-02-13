@@ -1,4 +1,4 @@
-package br.com.microservice.exceptions.handler;
+package br.com.microservice.exception.handler;
 
 import java.util.Date;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import br.com.microservice.exceptions.ExceptionResponse;
-import br.com.microservice.exceptions.ResourceNotFoundException;
+import br.com.microservice.exception.ExceptionResponse;
+import br.com.microservice.exception.ResourceNotFoundException;
 
 @ControllerAdvice
 @RestController

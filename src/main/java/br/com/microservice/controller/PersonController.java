@@ -1,4 +1,4 @@
-package br.com.microservice.controllers;
+package br.com.microservice.controller;
 
 import java.util.List;
 
@@ -15,14 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.microservice.model.Person;
-import br.com.microservice.services.PersonServices;
+import br.com.microservice.service.PersonService;
 
 @RestController
 @RequestMapping("/person")
 public class PersonController {
 	
 	@Autowired
-	private PersonServices service;
+	private PersonService service;
 	
 	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	public List<Person> findAll() {
