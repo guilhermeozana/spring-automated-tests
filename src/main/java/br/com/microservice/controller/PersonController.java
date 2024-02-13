@@ -1,4 +1,4 @@
-package br.com.erudio.controllers;
+package br.com.microservice.controllers;
 
 import java.util.List;
 
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.erudio.model.Person;
-import br.com.erudio.services.PersonServices;
+import br.com.microservice.model.Person;
+import br.com.microservice.services.PersonServices;
 
 @RestController
 @RequestMapping("/person")

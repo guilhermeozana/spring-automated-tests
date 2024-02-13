@@ -1,4 +1,4 @@
-package br.com.erudio.services;
+package br.com.microservice.services;
 
 import java.util.List;
 import java.util.logging.Logger;
@@ -6,9 +6,9 @@ import java.util.logging.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import br.com.erudio.exceptions.ResourceNotFoundException;
-import br.com.erudio.model.Person;
-import br.com.erudio.repositories.PersonRepository;
+import br.com.microservice.exceptions.ResourceNotFoundException;
+import br.com.microservice.model.Person;
+import br.com.microservice.repositories.PersonRepository;
 
 @Service
 public class PersonServices {
