@@ -13,4 +13,14 @@ public class PersonCreator {
                 .gender("Masculino")
                 .build();
     }
+
+    public static Person buildUpdatedPerson() {
+        return Person.builder()
+                .firstName("Teste")
+                .lastName("Campos")
+                .email("test@test.com")
+                .address("Rio de Janeiro, RJ, Brasil")
+                .gender("Masculino")
+                .build();
+    }
 }

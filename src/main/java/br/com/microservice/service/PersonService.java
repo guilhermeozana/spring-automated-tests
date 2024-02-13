@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.logging.Logger;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,12 +13,12 @@ import br.com.microservice.model.Person;
 import br.com.microservice.repository.PersonRepository;
 
 @Service
+@RequiredArgsConstructor
 public class PersonService {
 
 	private Logger logger = Logger.getLogger(PersonService.class.getName());
 
-	@Autowired
-	PersonRepository repository;
+	private final PersonRepository repository;
 
 	public List<Person> findAll() {
 
