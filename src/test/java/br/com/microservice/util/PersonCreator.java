@@ -18,7 +18,7 @@ public class PersonCreator {
         return Person.builder()
                 .firstName("Teste")
                 .lastName("Campos")
-                .email("test@test.com")
+                .email("teste@teste.com")
                 .address("Rio de Janeiro, RJ, Brasil")
                 .gender("Masculino")
                 .build();

@@ -173,7 +173,7 @@ public class PersonControllerTest {
     }
 
     @Test
-    @DisplayName("Given personId when Delete then Return NotContent")
+    @DisplayName("Given personId when Delete then Return No Content")
     void testGivenPersonId_WhenDelete_thenReturnNotContent() throws Exception {
 
         // Given
