@@ -1,0 +1,41 @@
+version: '3.9'
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      TZ: America/Sao_Paulo
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_USER: docker
+      MYSQL_PASSWORD: admin123
+      MYSQL_DATABASE: rest_with_spring_boot
+      MYSQL_ROOT_HOST: '%'
+      MYSQL_TCP_PORT: 3308
+    ports:
+      - "3308:3308"
+    expose:
+      - 3308
+    networks:
+      - my-network
+
+  rest-with-spring-boot:
+    image: guilhermeozana/rest-with-spring-boot
+    restart: always
+    build: .
+    working_dir: /rest-with-spring-boot-and-java
+    environment:
+      TZ: America/Sao_Paulo
+      SPRING.DATASOURCE.URL: jdbc:mysql://db:3308/rest_with_spring_boot?useTimezone=true&serverTimezone=UTC
+      SPRING.DATASOURCE.USERNAME: root
+      SPRING.DATASOURCE.PASSWORD: admin123
+    ports:
+      - "80:80"
+    command: mvn spring-boot:run
+    depends_on:
+      - db
+    networks:
+      - my-network
+networks:
+  my-network:
+    driver: bridge

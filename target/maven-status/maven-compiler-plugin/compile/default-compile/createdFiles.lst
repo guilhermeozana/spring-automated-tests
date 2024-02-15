@@ -1,0 +1,10 @@
+br\com\microservice\Startup.class
+br\com\microservice\exception\ExceptionResponse.class
+br\com\microservice\controller\PersonController.class
+br\com\microservice\repository\PersonRepository.class
+br\com\microservice\service\PersonService.class
+br\com\microservice\model\Person$PersonBuilder.class
+br\com\microservice\exception\handler\CustomizedResponseEntityExceptionHandler.class
+br\com\microservice\config\OpenApiConfig.class
+br\com\microservice\exception\ResourceNotFoundException.class
+br\com\microservice\model\Person.class

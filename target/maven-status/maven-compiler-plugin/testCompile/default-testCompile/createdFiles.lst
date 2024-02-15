@@ -1,0 +1,9 @@
+br\com\microservice\controller\PersonControllerTest.class
+br\com\microservice\integration\controller\PersonControllerIntegrationTest.class
+br\com\microservice\integration\swagger\SwaggerIntegrationTest.class
+br\com\microservice\integration\testcontainer\AbstractIntegrationTest$Initializer.class
+br\com\microservice\util\PersonCreator.class
+br\com\microservice\config\TestConfig.class
+br\com\microservice\repository\PersonRepositoryTest.class
+br\com\microservice\service\PersonServiceTest.class
+br\com\microservice\integration\testcontainer\AbstractIntegrationTest.class
