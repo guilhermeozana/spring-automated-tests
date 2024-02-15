@@ -30,7 +30,6 @@ jobs:
         cache: maven
         
     - name: Build Application JAR
-      working-directory: ./spring-automated-tests
       run: mvn clean package
 
     - name: Docker Compose Build
