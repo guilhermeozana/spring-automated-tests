@@ -2,9 +2,9 @@ name: Continuous Integration with Github Actions
 
 on:
   push:
-    branches: 
+    branches:
       - "main"
-    
+
   pull_request:
     branches:
       - "main"
@@ -21,7 +21,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: '17'
-          distribution: 'temurin'
+          distribution: 'adopt'
           cache: maven
 
       - name: Build Application JAR
@@ -39,9 +39,10 @@ jobs:
       - name: Push to Docker Hub
         run: |
           docker tag ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot:latest  ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot:${{ github.run_id }} 
+          
           docker push ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot:latest
           docker push ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot:${{ github.run_id }}
-          
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
@@ -60,17 +61,25 @@ jobs:
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: rest-with-spring-boot-ecr
-          IMAGE_TAG: ${{ github.sha }}
+          IMAGE_TAG: ${{ github.run_id }}
         run: |
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker tag ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot:latest $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker tag ${{ secrets.DOCKER_USERNAME }}/rest-with-spring-boot:latest $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:latest
+          
           echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+
+      - name: Download task definition
+        run: |
+          aws ecs describe-task-definition --task-definition rest-with-spring-boot-task-definition --query taskDefinition > task-definition.json
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
-          task-definition: rest-with-spring-boot-task-definition.json
+          task-definition: task-definition.json
           container-name: rest-with-spring-boot-container
           image: ${{ steps.build-image.outputs.image }}
 
