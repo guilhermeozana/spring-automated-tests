@@ -5,11 +5,10 @@ import java.util.Optional;
 import java.util.logging.Logger;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.microservice.exception.ResourceNotFoundException;
-import br.com.microservice.model.Person;
+import br.com.microservice.domain.model.Person;
 import br.com.microservice.repository.PersonRepository;
 
 @Service

@@ -1,6 +1,6 @@
 package br.com.microservice.util;
 
-import br.com.microservice.model.Person;
+import br.com.microservice.domain.model.Person;
 
 public class PersonCreator {
 

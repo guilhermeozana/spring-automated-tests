@@ -1,7 +1,7 @@
 package br.com.microservice.repository;
 
 import br.com.microservice.integration.testcontainer.AbstractIntegrationTest;
-import br.com.microservice.model.Person;
+import br.com.microservice.domain.model.Person;
 import br.com.microservice.util.PersonCreator;
 import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;

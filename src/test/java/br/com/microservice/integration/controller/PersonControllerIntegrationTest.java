@@ -2,7 +2,7 @@ package br.com.microservice.integration.controller;
 
 import br.com.microservice.config.TestConfig;
 import br.com.microservice.integration.testcontainer.AbstractIntegrationTest;
-import br.com.microservice.model.Person;
+import br.com.microservice.domain.model.Person;
 import br.com.microservice.util.PersonCreator;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;

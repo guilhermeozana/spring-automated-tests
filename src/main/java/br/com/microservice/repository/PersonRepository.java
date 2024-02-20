@@ -2,7 +2,7 @@ package br.com.microservice.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import br.com.microservice.model.Person;
+import br.com.microservice.domain.model.Person;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 

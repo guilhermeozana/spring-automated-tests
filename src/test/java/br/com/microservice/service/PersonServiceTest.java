@@ -10,7 +10,7 @@ import java.util.Optional;
 import static org.mockito.BDDMockito.*;
 
 import br.com.microservice.exception.ResourceNotFoundException;
-import br.com.microservice.model.Person;
+import br.com.microservice.domain.model.Person;
 import br.com.microservice.repository.PersonRepository;
 import br.com.microservice.util.PersonCreator;
 import org.junit.jupiter.api.BeforeEach;

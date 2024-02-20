@@ -1,7 +1,7 @@
 package br.com.microservice.controller;
 
 import br.com.microservice.exception.ResourceNotFoundException;
-import br.com.microservice.model.Person;
+import br.com.microservice.domain.model.Person;
 import br.com.microservice.service.PersonService;
 import br.com.microservice.util.PersonCreator;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -17,7 +17,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultActions;
-import org.springframework.test.web.servlet.ResultMatcher;
 
 import java.util.List;
 

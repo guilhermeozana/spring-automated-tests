@@ -1,15 +1,25 @@
 server:
-  port: 80
+  port: 8080
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://rest-with-spring-boot.cpic4iqae9zw.us-east-1.rds.amazonaws.com:3306/rest_with_spring_boot?useTimezone=true&serverTimezone=UTC
-    username: admin
+    #url: jdbc:mysql://rest-with-spring-boot.cpic4iqae9zw.us-east-1.rds.amazonaws.com:3306/rest_with_spring_boot?useTimezone=true&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3308/rest_with_spring_boot?useTimezone=true&serverTimezone=UTC
+    username: docker
     password: admin123
   jpa:
     hibernate:
       ddl-auto: update
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL8Dialect
+        dialect: org.hibernate.dialect.MySQLDialect
     show-sql: false
+
+  flyway:
+    baseline-on-migrate: true
+
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:my-secret-key}
+
